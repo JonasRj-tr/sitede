@@ -1,0 +1,1759 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mattos Multi Service — Dedetizadora & Conservadora em MG</title>
+<meta name="description" content="Mattos Multi Service: dedetização, desratização, descupinização, controle de pragas, limpeza de caixa d'água e desentupimento em Minas Gerais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root {
+  --g900: #0a2213;
+  --g800: #0f3319;
+  --g700: #155224;
+  --g600: #1a6b2e;
+  --g500: #22883c;
+  --g400: #2ba84d;
+  --g300: #4fc76a;
+  --g200: #9ee3ae;
+  --g100: #d4f5dc;
+  --g050: #f0fbf3;
+
+  --ink:  #0a1a0e;
+  --ink2: #243329;
+  --muted: #5a7362;
+  --line: rgba(34,136,60,0.12);
+
+  --white: #ffffff;
+  --cream: #f7faf8;
+
+  --accent: #22c55e; /* vivid green accent */
+  --accent2: #16a34a;
+
+  --r: 14px;
+  --r-sm: 8px;
+  --shadow-card: 0 4px 32px rgba(10,34,19,0.10);
+  --shadow-hover: 0 12px 48px rgba(10,34,19,0.18);
+  --shadow-btn: 0 4px 20px rgba(34,136,60,0.35);
+}
+
+/* ═══════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display:block; max-width:100%; }
+a { text-decoration:none; color:inherit; }
+
+/* ═══════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════ */
+.container { max-width:1180px; margin:0 auto; padding:0 1.5rem; }
+.tag {
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color: var(--g500); background: var(--g100);
+  padding:.3rem .85rem; border-radius:99px;
+  margin-bottom:1.1rem;
+}
+.tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+h2.section-h {
+  font-family:'Syne',sans-serif; font-size:clamp(1.9rem,4vw,2.8rem);
+  font-weight:800; line-height:1.1; color:var(--ink);
+  margin-bottom:.9rem;
+}
+h2.section-h span { color: var(--g500); }
+p.section-p {
+  font-size:.98rem; line-height:1.85; color:var(--muted);
+  max-width:560px;
+}
+.divider {
+  width:48px; height:3px; border-radius:99px;
+  background: linear-gradient(90deg, var(--accent), var(--g200));
+  margin:.9rem 0 1.6rem;
+}
+.divider.center { margin-left:auto; margin-right:auto; }
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+.reveal {
+  opacity:0; transform:translateY(28px);
+  transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible { opacity:1; transform:none; }
+.reveal.d1 { transition-delay:.08s; }
+.reveal.d2 { transition-delay:.16s; }
+.reveal.d3 { transition-delay:.24s; }
+.reveal.d4 { transition-delay:.32s; }
+.reveal.d5 { transition-delay:.40s; }
+.reveal.d6 { transition-delay:.48s; }
+
+/* ═══════════════════════════════════════
+   TOP STRIP
+═══════════════════════════════════════ */
+.topstrip {
+  background: var(--g900);
+  padding:.45rem 0;
+  font-size:.73rem; font-weight:500; color:rgba(255,255,255,.65);
+}
+.topstrip .container {
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.4rem;
+}
+.topstrip a { color:rgba(255,255,255,.75); transition:color .2s; }
+.topstrip a:hover { color:#fff; }
+.ts-left { display:flex; gap:1.4rem; }
+.ts-right { display:flex; gap:1rem; align-items:center; }
+.wa-phone-icon {
+  display:inline-block; width:16px; height:16px; vertical-align:middle;
+  margin-right:3px; flex-shrink:0;
+}
+  background: #22c55e; color:#fff; padding:.2rem .8rem;
+  border-radius:99px; font-size:.7rem; font-weight:700;
+  display:inline-flex; align-items:center; gap:.35rem;
+  transition:background .2s;
+}
+.wa-badge:hover { background:#16a34a; }
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+.navbar {
+  position:sticky; top:0; z-index:900;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow .3s;
+}
+.navbar.scrolled { box-shadow: 0 2px 24px rgba(10,34,19,.08); }
+.nav-inner {
+  display:flex; align-items:center; justify-content:space-between;
+  height:70px; gap:1rem;
+}
+.logo { display:flex; flex-direction:column; }
+.logo-name {
+  font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800;
+  color: var(--g800); letter-spacing:.04em; line-height:1;
+}
+.logo-sub {
+  font-size:.58rem; font-weight:600; letter-spacing:.25em; text-transform:uppercase;
+  color:var(--g500); margin-top:.1rem;
+}
+.nav-links {
+  display:flex; list-style:none; gap:.2rem; align-items:center;
+}
+.nav-links a {
+  font-size:.82rem; font-weight:600; color:var(--ink2);
+  padding:.45rem .9rem; border-radius:var(--r-sm);
+  transition:background .2s, color .2s;
+}
+.nav-links a:hover { background:var(--g050); color:var(--g600); }
+.nav-btn {
+  background: var(--g700); color:#fff !important;
+  padding:.5rem 1.3rem !important; border-radius:var(--r-sm) !important;
+  font-weight:700 !important; font-size:.82rem !important;
+  box-shadow: var(--shadow-btn);
+  transition:background .2s, transform .15s, box-shadow .2s !important;
+}
+.nav-btn:hover { background:var(--g800) !important; transform:translateY(-1px); box-shadow:0 6px 28px rgba(34,136,60,.4) !important; }
+
+/* hamburger */
+.burger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:.3rem; }
+.burger span { display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; transition:all .3s; }
+.mob-nav {
+  display:none; flex-direction:column;
+  background:#fff; border-bottom:1px solid var(--line);
+  padding:.5rem 0;
+}
+.mob-nav.open { display:flex; }
+.mob-nav a {
+  padding:.85rem 1.5rem; font-size:.9rem; font-weight:600;
+  color:var(--ink2); border-bottom:1px solid var(--line);
+  transition:background .15s;
+}
+.mob-nav a:hover { background:var(--g050); }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  position:relative; overflow:hidden;
+  background: var(--g900);
+  min-height:92vh; display:flex; align-items:center;
+  padding:5rem 0 4rem;
+}
+
+/* geometric bg shapes */
+.hero-geo {
+  position:absolute; inset:0; pointer-events:none; overflow:hidden;
+}
+.hero-geo span {
+  position:absolute; border-radius:50%;
+  background: linear-gradient(135deg, rgba(34,136,60,.18), rgba(34,136,60,.04));
+  filter:blur(60px);
+}
+.hero-geo span:nth-child(1) { width:700px; height:700px; right:-180px; top:-200px; }
+.hero-geo span:nth-child(2) { width:400px; height:400px; left:-100px; bottom:-100px; opacity:.6; }
+.hero-geo span:nth-child(3) {
+  width:1px; height:100%;
+  background:linear-gradient(180deg,transparent,rgba(34,200,80,.15),transparent);
+  filter:none; left:55%; top:0; border-radius:0;
+}
+
+/* diagonal bottom clip */
+.hero::after {
+  content:'';
+  position:absolute; bottom:-2px; left:0; right:0; height:80px;
+  background: var(--white);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.hero-inner {
+  display:grid; grid-template-columns:1fr auto;
+  gap:3.5rem; align-items:center; position:relative; z-index:1; width:100%;
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color: var(--g300);
+  margin-bottom:1.4rem;
+}
+.hero-eyebrow::before {
+  content:''; width:28px; height:1.5px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+}
+.hero h1 {
+  font-family:'Syne',sans-serif; font-weight:800;
+  font-size:clamp(2.4rem,5.5vw,4rem); line-height:1.04;
+  color:#fff; margin-bottom:1.4rem;
+}
+.hero h1 em {
+  font-style:normal;
+  background:linear-gradient(135deg,var(--g300) 0%,var(--accent) 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-desc {
+  font-size:1.02rem; line-height:1.8; color:rgba(255,255,255,.62);
+  max-width:480px; margin-bottom:2.4rem;
+}
+.hero-desc strong { color:rgba(255,255,255,.9); font-weight:600; }
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--accent); color:#fff;
+  padding:.82rem 2rem; border-radius:var(--r);
+  font-weight:700; font-size:.88rem; letter-spacing:.01em;
+  box-shadow:0 6px 28px rgba(34,197,94,.4);
+  transition:all .2s;
+}
+.btn-primary:hover { background:#16a34a; transform:translateY(-2px); box-shadow:0 10px 36px rgba(34,197,94,.5); }
+
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:.5rem;
+  border:1.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.82);
+  padding:.82rem 2rem; border-radius:var(--r);
+  font-weight:600; font-size:.88rem;
+  transition:all .2s; backdrop-filter:blur(8px);
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,.5); color:#fff; background:rgba(255,255,255,.07); }
+
+.hero-trust {
+  display:flex; gap:1.8rem; flex-wrap:wrap;
+}
+.trust-item {
+  display:flex; flex-direction:column;
+}
+.trust-item strong {
+  font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800;
+  background:linear-gradient(135deg,#fff,var(--g300));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  line-height:1;
+}
+.trust-item span { font-size:.7rem; font-weight:600; color:rgba(255,255,255,.45); text-transform:uppercase; letter-spacing:.1em; margin-top:.2rem; }
+
+/* Hero right — service pills */
+.hero-pills {
+  display:flex; flex-direction:column; gap:.75rem;
+}
+.hpill {
+  display:flex; align-items:center; gap:.9rem;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r); padding:1rem 1.3rem;
+  backdrop-filter:blur(12px); color:#fff;
+  transition:background .25s, border-color .25s, transform .25s;
+  cursor:default; min-width:240px;
+}
+.hpill:hover { background:rgba(255,255,255,.1); border-color:rgba(34,200,80,.35); transform:translateX(-4px); }
+.hpill .pill-ic {
+  width:40px; height:40px; border-radius:10px; flex-shrink:0;
+  background: linear-gradient(135deg,var(--g600),var(--g800));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem;
+}
+.hpill strong { display:block; font-size:.85rem; font-weight:700; line-height:1.2; }
+.hpill span { font-size:.71rem; color:rgba(255,255,255,.5); margin-top:.15rem; display:block; }
+
+/* ═══════════════════════════════════════
+   NUMBERS BAR
+═══════════════════════════════════════ */
+.numbar { background: var(--g800); padding:2rem 0; }
+.numbar-inner {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; text-align:center;
+}
+.num-item {
+  padding:1rem 0.5rem;
+  border-right:1px solid rgba(255,255,255,.07);
+}
+.num-item:last-child { border-right:none; }
+.num-item strong {
+  display:block; font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:#fff;
+}
+.num-item span { font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--g200); font-weight:600; }
+
+/* ═══════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════ */
+.services { padding:6rem 0; background:var(--white); }
+.services .section-head { text-align:center; max-width:560px; margin:0 auto 3.5rem; }
+.services .divider { margin-left:auto; margin-right:auto; }
+.srv-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+}
+.srv-card {
+  border:1.5px solid var(--line); border-radius:var(--r);
+  padding:2rem; background:#fff; position:relative; overflow:hidden;
+  transition:border-color .3s, transform .3s, box-shadow .3s;
+  display:flex; flex-direction:column;
+}
+.srv-card::before {
+  content:''; position:absolute; inset:0; border-radius:var(--r);
+  background:linear-gradient(135deg,var(--g050),transparent);
+  opacity:0; transition:opacity .3s;
+}
+.srv-card:hover { border-color:var(--g300); transform:translateY(-6px); box-shadow:var(--shadow-hover); }
+.srv-card:hover::before { opacity:1; }
+.srv-icon {
+  width:52px; height:52px; border-radius:14px;
+  background:linear-gradient(135deg,var(--g700),var(--g500));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; margin-bottom:1.3rem; flex-shrink:0;
+  box-shadow: 0 4px 16px rgba(34,136,60,.25);
+  position:relative; z-index:1;
+}
+.srv-card h3 {
+  font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:800;
+  color:var(--ink); margin-bottom:.6rem; position:relative; z-index:1;
+}
+.srv-card p {
+  font-size:.855rem; line-height:1.78; color:var(--muted);
+  position:relative; z-index:1; flex:1;
+}
+.srv-link {
+  display:inline-flex; align-items:center; gap:.35rem;
+  font-size:.78rem; font-weight:700; color:var(--g500);
+  margin-top:1.2rem; position:relative; z-index:1;
+  transition:gap .2s;
+}
+.srv-link:hover { gap:.6rem; }
+
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+.about { padding:6rem 0; background:var(--cream); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+
+.about-visual {
+  position:relative; border-radius:20px; overflow:hidden;
+  background:linear-gradient(145deg, var(--g900) 0%, var(--g700) 60%, var(--g500) 100%);
+  min-height:480px; display:flex; align-items:center; justify-content:center;
+  flex-direction:column; padding:3rem 2.5rem;
+}
+.about-visual::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(circle at 70% 30%, rgba(34,200,80,.2), transparent 60%);
+}
+.about-big-icon { font-size:6rem; z-index:1; margin-bottom:1.5rem; opacity:.9; }
+.about-grid-mini {
+  display:grid; grid-template-columns:1fr 1fr; gap:.8rem; width:100%; z-index:1;
+}
+.mini-box {
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15);
+  border-radius:12px; padding:1.1rem; text-align:center;
+  backdrop-filter:blur(8px);
+}
+.mini-box strong {
+  display:block; font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800;
+  color:#fff; line-height:1;
+}
+.mini-box span { font-size:.66rem; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,.55); font-weight:600; }
+
+/* floating badge */
+.float-badge {
+  position:absolute; bottom:2rem; right:-1.5rem;
+  background:#fff; border-radius:12px; padding:.9rem 1.2rem;
+  box-shadow:0 8px 32px rgba(10,34,19,.18);
+  display:flex; align-items:center; gap:.7rem; z-index:2;
+}
+.float-badge .fb-icon { font-size:1.4rem; }
+.float-badge strong { display:block; font-size:.82rem; font-weight:700; color:var(--ink); }
+.float-badge span { font-size:.7rem; color:var(--muted); }
+
+.about-content {}
+.about-content p { font-size:.94rem; line-height:1.9; color:var(--muted); margin-bottom:1rem; }
+.about-content p strong { color:var(--ink); }
+.check-grid { display:grid; grid-template-columns:1fr 1fr; gap:.6rem .8rem; margin:1.8rem 0 2.2rem; }
+.ck {
+  display:flex; gap:.55rem; align-items:flex-start;
+  font-size:.85rem; color:var(--ink2); font-weight:500;
+}
+.ck::before {
+  content:'✓'; flex-shrink:0; margin-top:.05rem;
+  color:#fff; background:var(--g500); font-size:.65rem; font-weight:800;
+  width:18px; height:18px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ═══════════════════════════════════════
+   PRAGAS
+═══════════════════════════════════════ */
+.pragas { padding:5.5rem 0; background:var(--white); }
+.pragas-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:1rem; }
+.praga-tile {
+  border:1.5px solid var(--line); border-radius:var(--r);
+  padding:1.6rem .8rem 1.3rem; text-align:center;
+  transition:all .25s; cursor:default;
+  background:#fff;
+}
+.praga-tile:hover {
+  border-color:var(--g400); background:var(--g050);
+  transform:translateY(-4px); box-shadow:0 6px 24px rgba(34,136,60,.12);
+}
+.praga-tile .pic { font-size:1.8rem; margin-bottom:.5rem; }
+.praga-tile p { font-size:.73rem; font-weight:700; color:var(--ink2); }
+
+/* ═══════════════════════════════════════
+   PROCESS STRIP
+═══════════════════════════════════════ */
+.process { padding:5rem 0; background:var(--g900); position:relative; overflow:hidden; }
+.process::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(34,136,60,.2), transparent 70%);
+  pointer-events:none;
+}
+.process .section-head { text-align:center; margin-bottom:3rem; }
+.process .section-head .tag { background:rgba(34,136,60,.2); color:var(--g300); }
+.process .section-head h2.section-h { color:#fff; }
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.proc-card {
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r); padding:1.8rem 1.5rem;
+  text-align:center; position:relative;
+  transition:background .3s, border-color .3s;
+}
+.proc-card:hover { background:rgba(255,255,255,.08); border-color:rgba(34,200,80,.3); }
+.proc-num {
+  font-family:'Syne',sans-serif; font-size:2.5rem; font-weight:800;
+  color:rgba(34,200,80,.2); line-height:1; margin-bottom:.5rem;
+}
+.proc-card h4 { font-size:.92rem; font-weight:700; color:#fff; margin-bottom:.5rem; }
+.proc-card p { font-size:.82rem; color:rgba(255,255,255,.5); line-height:1.7; }
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testi { padding:6rem 0; background:var(--cream); }
+.testi .section-head { text-align:center; margin-bottom:3.5rem; }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.testi-card {
+  background:#fff; border-radius:var(--r); padding:2rem;
+  box-shadow:var(--shadow-card); border:1.5px solid var(--line);
+  transition:box-shadow .3s, transform .3s;
+}
+.testi-card:hover { box-shadow:var(--shadow-hover); transform:translateY(-4px); }
+.stars { color:#f59e0b; font-size:.95rem; letter-spacing:.1em; margin-bottom:1rem; }
+.testi-card blockquote {
+  font-size:.875rem; line-height:1.8; color:var(--muted);
+  font-style:italic; margin-bottom:1.2rem;
+  padding-left:.8rem; border-left:2px solid var(--g200);
+}
+.testi-author { font-size:.8rem; font-weight:700; color:var(--g600); }
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq { padding:6rem 0; background:var(--white); }
+.faq-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.faq-side h2.section-h { font-size:clamp(1.6rem,3.5vw,2.2rem); }
+.faq-side p { font-size:.92rem; line-height:1.8; color:var(--muted); margin-bottom:2rem; }
+.faq-cta {
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:var(--g700); color:#fff; padding:.85rem 1.8rem;
+  border-radius:var(--r); font-weight:700; font-size:.85rem;
+  box-shadow:var(--shadow-btn); transition:all .2s;
+}
+.faq-cta:hover { background:var(--g800); transform:translateY(-2px); }
+.faq-list {}
+.faq-item { border-bottom:1.5px solid var(--line); }
+.faq-btn {
+  width:100%; background:none; border:none; cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  padding:1.1rem 0; text-align:left;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.88rem; font-weight:700; color:var(--ink2);
+  transition:color .2s;
+}
+.faq-btn:hover, .faq-btn.open { color:var(--g600); }
+.faq-arrow {
+  width:28px; height:28px; border-radius:50%; flex-shrink:0;
+  background:var(--g050); border:1.5px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.75rem; transition:all .3s;
+}
+.faq-btn.open .faq-arrow { background:var(--g600); border-color:var(--g600); color:#fff; transform:rotate(180deg); }
+.faq-body { display:none; padding:0 0 1.1rem; font-size:.86rem; line-height:1.8; color:var(--muted); }
+.faq-body.open { display:block; }
+
+/* ═══════════════════════════════════════
+   CTA BANNER
+═══════════════════════════════════════ */
+.cta-banner {
+  padding:5rem 0; position:relative; overflow:hidden;
+  background:linear-gradient(135deg, var(--g900) 0%, var(--g700) 100%);
+}
+.cta-banner::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 30% 50%, rgba(34,200,80,.15), transparent 60%);
+}
+.cta-inner {
+  position:relative; z-index:1;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem;
+}
+.cta-text h2 { font-family:'Syne',sans-serif; font-size:clamp(1.7rem,3.5vw,2.4rem); font-weight:800; color:#fff; margin-bottom:.5rem; }
+.cta-text p { font-size:.95rem; color:rgba(255,255,255,.6); max-width:440px; }
+.cta-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+.btn-wa-lg {
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:#22c55e; color:#fff; padding:.95rem 2.2rem;
+  border-radius:var(--r); font-weight:700; font-size:.92rem;
+  box-shadow:0 6px 28px rgba(34,197,94,.4);
+  transition:all .2s;
+}
+.btn-wa-lg:hover { background:#16a34a; transform:translateY(-2px); }
+.btn-light {
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:rgba(255,255,255,.1); border:1.5px solid rgba(255,255,255,.2);
+  color:#fff; padding:.95rem 2.2rem; border-radius:var(--r);
+  font-weight:600; font-size:.92rem; transition:all .2s;
+}
+.btn-light:hover { background:rgba(255,255,255,.16); }
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+.contact { padding:6rem 0; background:var(--white); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+.contact-info h2 { font-family:'Syne',sans-serif; font-size:clamp(1.6rem,3vw,2rem); font-weight:800; color:var(--ink); margin-bottom:.8rem; }
+.contact-info > p { font-size:.93rem; line-height:1.8; color:var(--muted); margin-bottom:2rem; }
+.cinfo-block {
+  display:flex; gap:1rem; align-items:flex-start;
+  padding:1.1rem 1.3rem; border-radius:var(--r);
+  background:var(--cream); border:1.5px solid var(--line);
+  margin-bottom:.9rem; transition:border-color .2s;
+}
+.cinfo-block:hover { border-color:var(--g300); }
+.cinfo-icon {
+  width:40px; height:40px; border-radius:10px; flex-shrink:0;
+  background:linear-gradient(135deg,var(--g700),var(--g500));
+  display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+}
+.cinfo-block h4 { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--g500); margin-bottom:.25rem; }
+.cinfo-block a, .cinfo-block p { font-size:.86rem; font-weight:600; color:var(--ink2); line-height:1.6; }
+.cinfo-block a:hover { color:var(--g600); }
+
+/* Form */
+.form-card {
+  background:var(--cream); border-radius:20px; padding:2.5rem;
+  border:1.5px solid var(--line);
+}
+.form-card h3 {
+  font-family:'Syne',sans-serif; font-size:1.15rem; font-weight:800;
+  color:var(--ink); margin-bottom:.35rem;
+}
+.form-card .form-sub { font-size:.82rem; color:var(--muted); margin-bottom:1.8rem; }
+.f-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.f-group { margin-bottom:1rem; }
+.f-group label {
+  display:block; font-size:.72rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.09em; color:var(--g700);
+  margin-bottom:.4rem;
+}
+.f-group input, .f-group textarea, .f-group select {
+  width:100%; background:#fff; border:1.5px solid #d4e8da;
+  border-radius:var(--r-sm); padding:.75rem 1rem;
+  font-family:'Plus Jakarta Sans',sans-serif; font-size:.87rem; color:var(--ink);
+  outline:none; transition:border-color .2s, box-shadow .2s;
+  appearance:none;
+}
+.f-group input::placeholder, .f-group textarea::placeholder { color:#9cb5a4; }
+.f-group input:focus, .f-group textarea:focus, .f-group select:focus {
+  border-color:var(--g400); box-shadow:0 0 0 3px rgba(34,136,60,.1);
+}
+.f-group textarea { min-height:110px; resize:vertical; }
+.btn-send {
+  width:100%; background:linear-gradient(135deg,var(--g600),var(--g800));
+  color:#fff; border:none; padding:1rem; border-radius:var(--r);
+  font-family:'Plus Jakarta Sans',sans-serif; font-weight:700;
+  font-size:.88rem; letter-spacing:.04em; text-transform:uppercase;
+  cursor:pointer; box-shadow:var(--shadow-btn);
+  transition:opacity .2s, transform .2s;
+}
+.btn-send:hover { opacity:.9; transform:translateY(-2px); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer { background:var(--g900); color:rgba(255,255,255,.6); }
+.footer-body { padding:4rem 0; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.4fr; gap:3rem; }
+
+.f-brand-name {
+  font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:800;
+  color:#fff; letter-spacing:.06em;
+}
+.f-brand-tag {
+  font-size:.58rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--g300); display:block; margin:.1rem 0 .9rem;
+}
+.f-brand-desc { font-size:.82rem; line-height:1.8; }
+.f-social { display:flex; gap:.6rem; margin-top:1.2rem; }
+.f-social a {
+  width:34px; height:34px; border-radius:8px; border:1px solid rgba(255,255,255,.12);
+  display:flex; align-items:center; justify-content:center; font-size:.9rem;
+  transition:background .2s, border-color .2s;
+}
+.f-social a:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.3); }
+
+.f-col h4 {
+  font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.14em;
+  color:rgba(255,255,255,.9); margin-bottom:1rem;
+}
+.f-col ul { list-style:none; }
+.f-col li { margin-bottom:.5rem; }
+.f-col a { font-size:.82rem; color:rgba(255,255,255,.55); transition:color .2s; }
+.f-col a:hover { color:#fff; }
+
+.f-contact-row { display:flex; gap:.7rem; margin-bottom:.7rem; font-size:.82rem; }
+.f-contact-row span { color:var(--g300); flex-shrink:0; margin-top:.1rem; }
+.f-contact-row a { color:rgba(255,255,255,.65); transition:color .2s; }
+.f-contact-row a:hover { color:#fff; }
+
+.footer-bar {
+  border-top:1px solid rgba(255,255,255,.07);
+  padding:1.2rem 0;
+}
+.footer-bar .container { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem; }
+.footer-bar p { font-size:.75rem; }
+
+/* ═══════════════════════════════════════
+   FLOAT WHATSAPP
+═══════════════════════════════════════ */
+.float-wa {
+  position:fixed; bottom:1.6rem; right:1.6rem; z-index:999;
+  width:58px; height:58px; border-radius:50%;
+  background:#22c55e; color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:1.6rem;
+  box-shadow:0 6px 28px rgba(34,197,94,.5);
+  animation:wa-pulse 2.4s ease-in-out infinite;
+  cursor:pointer;
+}
+@keyframes wa-pulse {
+  0%,100% { box-shadow:0 6px 28px rgba(34,197,94,.5); }
+  50% { box-shadow:0 6px 40px rgba(34,197,94,.75); }
+}
+
+/* WhatsApp Modal */
+.whatsapp-modal {
+  display:none; position:fixed; bottom:90px; right:1.6rem;
+  width:320px; background:#fff; border-radius:16px;
+  box-shadow:0 12px 48px rgba(10,34,19,0.25); z-index:998;
+  animation:slideUp 0.3s ease;
+}
+@keyframes slideUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.whatsapp-modal.show { display:block; }
+.modal-header {
+  background:linear-gradient(135deg, #25d366 0%, #128c4d 100%);
+  color:#fff; padding:1.2rem 1.5rem; border-radius:16px 16px 0 0;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.modal-header h3 { font-size:1.05rem; font-weight:700; margin:0; }
+.close-modal {
+  background:none; border:none; color:#fff; font-size:1.8rem;
+  cursor:pointer; padding:0; width:32px; height:32px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%; transition:background 0.2s; line-height:1;
+}
+.close-modal:hover { background:rgba(255,255,255,0.2); }
+.modal-body { padding:1.5rem; }
+.modal-body p { margin-bottom:1.2rem; color:var(--muted); font-size:0.9rem; }
+.contact-option {
+  display:flex; align-items:center; gap:12px; padding:1rem 1.2rem;
+  margin-bottom:0.8rem; background:var(--g050); border-radius:12px;
+  text-decoration:none; color:var(--ink); transition:all 0.3s;
+  border:2px solid transparent;
+}
+.contact-option:hover {
+  background:#25d366; color:#fff; transform:translateX(5px);
+  border-color:#1ea952; box-shadow:0 4px 12px rgba(37,211,102,0.3);
+}
+.contact-option .wa-icon { font-size:1.4rem; }
+.contact-option strong { flex:1; font-size:1.05rem; font-weight:600; }
+.contact-option .arrow { font-size:1.2rem; opacity:0.7; transition:transform 0.3s; }
+.contact-option:hover .arrow { transform:translateX(4px); }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:1060px){
+  .srv-grid { grid-template-columns:1fr 1fr; }
+  .pragas-grid { grid-template-columns:repeat(4,1fr); }
+  .process-grid { grid-template-columns:1fr 1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:860px){
+  .hero-inner { grid-template-columns:1fr; }
+  .hero-pills { flex-direction:row; flex-wrap:wrap; }
+  .hpill { min-width:calc(50% - .4rem); }
+  .about-grid { grid-template-columns:1fr; }
+  .about-visual { display:none; }
+  .testi-grid { grid-template-columns:1fr 1fr; }
+  .contact-grid { grid-template-columns:1fr; }
+  .faq-wrap { grid-template-columns:1fr; }
+  .numbar-inner { grid-template-columns:1fr 1fr; }
+  .cta-inner { flex-direction:column; text-align:center; }
+  .cta-text p { margin:0 auto; }
+}
+@media(max-width:640px){
+  .nav-links { display:none; }
+  .burger { display:flex; }
+  .ts-left { display:none; }
+  .srv-grid { grid-template-columns:1fr; }
+  .pragas-grid { grid-template-columns:repeat(3,1fr); }
+  .process-grid { grid-template-columns:1fr; }
+  .testi-grid { grid-template-columns:1fr; }
+  .f-row { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; }
+  .check-grid { grid-template-columns:1fr; }
+  .hero h1 { font-size:2.2rem; }
+}
+
+/* Modal WhatsApp Form */
+.whatsapp-form-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+.whatsapp-form-overlay.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-form-modal {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.whatsapp-form-header {
+  background: linear-gradient(135deg, #25d366 0%, #128c4d 100%);
+  padding: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.whatsapp-form-header img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-form-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.whatsapp-form-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.whatsapp-form-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-form-body {
+  padding: 2rem;
+}
+
+.whatsapp-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.whatsapp-form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.whatsapp-form-group input {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.whatsapp-form-group input:focus {
+  outline: none;
+  border-color: #25d366;
+}
+
+.whatsapp-form-group input::placeholder {
+  color: #999;
+}
+
+.whatsapp-form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #25d366 0%, #128c4d 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-form-submit:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .whatsapp-form-modal {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .whatsapp-form-body {
+    padding: 1.5rem;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="topstrip">
+  <div class="container">
+    <div class="ts-left">
+      <span>✉ <a href="mailto:conservadoramattos@gmail.com">conservadoramattos@gmail.com</a></span>
+      <span><svg class="wa-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> <a href="javascript:void(0)" onclick="openWhatsAppForm('5531973172376')">(31) 97317-2376</a></span>
+    </div>
+    <div class="ts-right">
+      <span>Seg–Sáb 7h–19h &nbsp;|&nbsp; Emergências 24h</span>
+      <a href="javascript:void(0)" onclick="openWhatsAppForm('5531988589278')">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-name">MATTOS</span>
+      <span class="logo-sub">Multi Service</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Início</a></li>
+      <li><a href="#sobre">Quem Somos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#conservacao">Conservação</a></li>
+      <li><a href="#pragas">Pragas</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contato" class="nav-btn">Orçamento Grátis</a></li>
+    </ul>
+    <button class="burger" onclick="document.getElementById('mobNav').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-nav" id="mobNav">
+    <a href="#hero"     onclick="document.getElementById('mobNav').classList.remove('open')">Início</a>
+    <a href="#sobre"    onclick="document.getElementById('mobNav').classList.remove('open')">Quem Somos</a>
+    <a href="#servicos" onclick="document.getElementById('mobNav').classList.remove('open')">Serviços</a>
+    <a href="#pragas"   onclick="document.getElementById('mobNav').classList.remove('open')">Pragas</a>
+    <a href="#conservacao" onclick="document.getElementById('mobNav').classList.remove('open')">Conservação</a>
+    <a href="#faq"      onclick="document.getElementById('mobNav').classList.remove('open')">FAQ</a>
+    <a href="#contato"  onclick="document.getElementById('mobNav').classList.remove('open')">Solicitar Orçamento</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-geo"><span></span><span></span><span></span></div>
+  <div class="container">
+    <div class="hero-inner">
+      <!-- Left -->
+      <div>
+        <div class="hero-eyebrow reveal">Conservadora &amp; Dedetizadora — Minas Gerais</div>
+        <h1 class="reveal d1">
+          Proteção que<br>
+          <em>você pode confiar.</em>
+        </h1>
+        <p class="hero-desc reveal d2">
+          Controle profissional de pragas, limpeza de reservatórios e desentupimento.
+          <strong>Eficiência, segurança e qualidade</strong> em cada atendimento.
+        </p>
+        <div class="hero-actions reveal d3">
+          <a href="javascript:void(0)" onclick="openWhatsAppForm('5531988589278')">💬 Falar no WhatsApp</a>
+          <a href="#servicos" class="btn-ghost">Ver serviços →</a>
+        </div>
+        <div class="hero-trust reveal d4">
+          <div class="trust-item"><strong>6+</strong><span>Serviços</span></div>
+          <div class="trust-item"><strong>24h</strong><span>Emergência</span></div>
+          <div class="trust-item"><strong>100%</strong><span>Qualidade</span></div>
+          <div class="trust-item"><strong>MG</strong><span>Cobertura</span></div>
+        </div>
+      </div>
+      <!-- Right pills -->
+      <div class="hero-pills reveal d2">
+        <div class="hpill"><div class="pill-ic">🦟</div><div><strong>Dedetização</strong><span>Baratas, formigas, mosquitos…</span></div></div>
+        <div class="hpill"><div class="pill-ic">🐀</div><div><strong>Desratização</strong><span>Controle de roedores</span></div></div>
+        <div class="hpill"><div class="pill-ic">🐜</div><div><strong>Descupinização</strong><span>Proteção total da madeira</span></div></div>
+        <div class="hpill"><div class="pill-ic">💧</div><div><strong>Limpeza de Caixa D'água</strong><span>Norma ABNT / ANVISA</span></div></div>
+        <div class="hpill"><div class="pill-ic">🔧</div><div><strong>Desentupimento</strong><span>Atendimento rápido</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS BAR -->
+<div class="numbar">
+  <div class="container">
+    <div class="numbar-inner">
+      <div class="num-item reveal"><strong>6</strong><span>Serviços especializados</span></div>
+      <div class="num-item reveal d1"><strong>24h</strong><span>Plantão de emergências</span></div>
+      <div class="num-item reveal d2"><strong>100%</strong><span>Clientes satisfeitos</span></div>
+      <div class="num-item reveal d3"><strong>MG</strong><span>Cobertura estadual</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Nossos Serviços</div>
+      <h2 class="section-h">Soluções completas em<br><span>controle de pragas</span></h2>
+      <div class="divider center"></div>
+      <p class="section-p" style="margin:0 auto">Atendemos residências, empresas e condomínios com rigor técnico, produtos certificados e laudos de garantia.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal d1"><div class="srv-icon">🦟</div><h3>Dedetização</h3><p>Eliminação eficaz de baratas, formigas, mosquitos, pulgas e percevejos com produtos registrados no Ministério da Saúde, baixa toxicidade e total segurança.</p><a href="#contato" class="srv-link">Solicitar orçamento <span>→</span></a></div>
+      <div class="srv-card reveal d2"><div class="srv-icon">🐀</div><h3>Desratização</h3><p>Controle e eliminação de ratos e roedores. Métodos modernos para erradicar infestações e prevenir reincidências, protegendo saúde e patrimônio.</p><a href="#contato" class="srv-link">Solicitar orçamento <span>→</span></a></div>
+      <div class="srv-card reveal d3"><div class="srv-icon">🐜</div><h3>Descupinização</h3><p>Tratamento especializado para cupins de madeira seca, subterrâneos e úmidos. Técnicas avançadas de injeção e aspersão evitam danos estruturais.</p><a href="#contato" class="srv-link">Solicitar orçamento <span>→</span></a></div>
+      <div class="srv-card reveal d4"><div class="srv-icon">🏙️</div><h3>Controle de Pragas Urbanas</h3><p>Gestão integrada de pragas com laudos técnicos e certificados de garantia, seguindo normas ANVISA. Ideal para condomínios, indústrias e comércios.</p><a href="#contato" class="srv-link">Solicitar orçamento <span>→</span></a></div>
+      <div class="srv-card reveal d5"><div class="srv-icon">💧</div><h3>Limpeza de Caixa D'água</h3><p>Higienização e desinfecção de reservatórios conforme ABNT NBR 5626. Produtos aprovados pela ANVISA para garantir água limpa e saudável.</p><a href="#contato" class="srv-link">Solicitar orçamento <span>→</span></a></div>
+      <div class="srv-card reveal d6"><div class="srv-icon">🔧</div><h3>Desentupimento</h3><p>Pias, ralos, vasos, esgoto e galerias. Atendimento rápido com equipamentos de alta pressão e câmeras de inspeção. Resolução eficiente garantida.</p><a href="#contato" class="srv-link">Solicitar orçamento <span>→</span></a></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONSERVAÇÃO -->
+<section class="conservation" id="conservacao" style="padding:6rem 0; background:#fff;">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center; margin-bottom:3.5rem;">
+      <div class="tag">Conservação</div>
+      <h2 class="section-h">Serviços de <span>Conservação</span></h2>
+      <div class="divider center"></div>
+      <p class="section-p" style="margin:0 auto;">Soluções completas em limpeza e manutenção para residências, empresas e condomínios.</p>
+    </div>
+    
+    <div class="conservation-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem;">
+      
+      <div class="conservation-card reveal d1" style="background:var(--cream); padding:2rem; border-radius:var(--r); border-left:4px solid var(--g500); transition:all 0.3s;">
+        <div class="cons-icon" style="width:60px; height:60px; background:linear-gradient(135deg, var(--g600), var(--g800)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1.2rem;">✓</div>
+        <h3 style="font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:1rem;">Dedetização em geral</h3>
+        <p style="color:var(--muted); line-height:1.7;">Controle completo de pragas urbanas com produtos certificados e técnicas modernas de aplicação.</p>
+      </div>
+
+      <div class="conservation-card reveal d2" style="background:var(--cream); padding:2rem; border-radius:var(--r); border-left:4px solid var(--g500); transition:all 0.3s;">
+        <div class="cons-icon" style="width:60px; height:60px; background:linear-gradient(135deg, var(--g600), var(--g800)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1.2rem;">💧</div>
+        <h3 style="font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:1rem;">Higienização de caixas e reservatórios d'água</h3>
+        <p style="color:var(--muted); line-height:1.7;">Limpeza e desinfecção de reservatórios conforme normas ABNT e ANVISA para garantir água de qualidade.</p>
+      </div>
+
+      <div class="conservation-card reveal d3" style="background:var(--cream); padding:2rem; border-radius:var(--r); border-left:4px solid var(--g500); transition:all 0.3s;">
+        <div class="cons-icon" style="width:60px; height:60px; background:linear-gradient(135deg, var(--g600), var(--g800)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1.2rem;">☀️</div>
+        <h3 style="font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:1rem;">Limpeza de placas fotovoltaicas (energia solar)</h3>
+        <p style="color:var(--muted); line-height:1.7;">Manutenção especializada em painéis solares para máxima eficiência energética.</p>
+      </div>
+
+      <div class="conservation-card reveal d4" style="background:var(--cream); padding:2rem; border-radius:var(--r); border-left:4px solid var(--g500); transition:all 0.3s;">
+        <div class="cons-icon" style="width:60px; height:60px; background:linear-gradient(135deg, var(--g600), var(--g800)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1.2rem;">🧼</div>
+        <h3 style="font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:1rem;">Higienização a seco de estofados, colchões e tapetes</h3>
+        <p style="color:var(--muted); line-height:1.7;">Limpeza profunda a seco com produtos específicos, eliminando ácaros, manchas e odores.</p>
+      </div>
+
+      <div class="conservation-card reveal d5" style="background:var(--cream); padding:2rem; border-radius:var(--r); border-left:4px solid var(--g500); transition:all 0.3s;">
+        <div class="cons-icon" style="width:60px; height:60px; background:linear-gradient(135deg, var(--g600), var(--g800)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1.2rem;">🔧</div>
+        <h3 style="font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:1rem;">Pequenos reparos elétricos e hidráulicos</h3>
+        <p style="color:var(--muted); line-height:1.7;">Serviços de manutenção rápida para torneiras, chuveiros, interruptores e tomadas.</p>
+      </div>
+
+      <div class="conservation-card reveal d6" style="background:var(--cream); padding:2rem; border-radius:var(--r); border-left:4px solid var(--g500); transition:all 0.3s;">
+        <div class="cons-icon" style="width:60px; height:60px; background:linear-gradient(135deg, var(--g600), var(--g800)); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1.2rem;">🏢</div>
+        <h3 style="font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:1rem;">Limpeza profunda de pisos internos e externos</h3>
+        <p style="color:var(--muted); line-height:1.7;">Limpeza especializada em diversos tipos de pisos com equipamentos profissionais.</p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;" class="reveal d7">
+      <a href="#contato" style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--g700); color:#fff; padding:1rem 2.5rem; border-radius:var(--r); font-weight:700; font-size:0.95rem; box-shadow:var(--shadow-btn); transition:all 0.2s; text-decoration:none;">
+        Solicitar Orçamento de Conservação →
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+.conservation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(10,34,19,0.15);
+  border-left-width: 6px;
+}
+
+/* Modal WhatsApp Form */
+.whatsapp-form-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+.whatsapp-form-overlay.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-form-modal {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.whatsapp-form-header {
+  background: linear-gradient(135deg, #25d366 0%, #128c4d 100%);
+  padding: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.whatsapp-form-header img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-form-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.whatsapp-form-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.whatsapp-form-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-form-body {
+  padding: 2rem;
+}
+
+.whatsapp-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.whatsapp-form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.whatsapp-form-group input {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.whatsapp-form-group input:focus {
+  outline: none;
+  border-color: #25d366;
+}
+
+.whatsapp-form-group input::placeholder {
+  color: #999;
+}
+
+.whatsapp-form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #25d366 0%, #128c4d 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-form-submit:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .whatsapp-form-modal {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .whatsapp-form-body {
+    padding: 1.5rem;
+  }
+}
+
+</style>
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Visual card -->
+      <div class="about-visual reveal">
+        <div class="about-big-icon">🛡️</div>
+        <div class="about-grid-mini">
+          <div class="mini-box"><strong>6</strong><span>Serviços</span></div>
+          <div class="mini-box"><strong>24h</strong><span>Emergência</span></div>
+          <div class="mini-box"><strong>100%</strong><span>Qualidade</span></div>
+          <div class="mini-box"><strong>MG</strong><span>Cobertura</span></div>
+        </div>
+        <div class="float-badge">
+          <span class="fb-icon">✅</span>
+          <div><strong>Certificado &amp; Garantido</strong><span>Laudos técnicos em todo serviço</span></div>
+        </div>
+      </div>
+      <!-- Text -->
+      <div class="about-content reveal d2">
+        <div class="tag">Quem Somos</div>
+        <h2 class="section-h">Especialistas em <span>controle de pragas</span> em MG</h2>
+        <div class="divider"></div>
+        <p>A <strong>Mattos Multi Service</strong> é uma empresa mineira especializada em soluções completas de controle de pragas, conservação e desentupimento para residências, empresas e condomínios.</p>
+        <p>Nossa equipe é formada por <strong>técnicos certificados</strong> que utilizam produtos registrados e equipamentos de ponta, sempre priorizando eficiência, segurança e responsabilidade ambiental.</p>
+        <div class="check-grid">
+          <div class="ck">Produtos registrados no MS</div>
+          <div class="ck">Equipe técnica certificada</div>
+          <div class="ck">Laudos e certificados</div>
+          <div class="ck">Atendimento personalizado</div>
+          <div class="ck">Responsabilidade ambiental</div>
+          <div class="ck">Orçamento 100% gratuito</div>
+        </div>
+        <a href="#contato" class="btn-primary">Solicitar orçamento grátis →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRAGAS -->
+<section class="pragas" id="pragas">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;margin-bottom:2.5rem">
+      <div class="tag">Especialidades</div>
+      <h2 class="section-h">Pragas que <span>controlamos</span></h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="pragas-grid">
+      <div class="praga-tile reveal d1"><div class="pic">🪳</div><p>Baratas</p></div>
+      <div class="praga-tile reveal d2"><div class="pic">🐀</div><p>Ratos</p></div>
+      <div class="praga-tile reveal d3"><div class="pic">🐜</div><p>Cupins</p></div>
+      <div class="praga-tile reveal d4"><div class="pic">🐜</div><p>Formigas</p></div>
+      <div class="praga-tile reveal d5"><div class="pic">🦟</div><p>Mosquitos</p></div>
+      <div class="praga-tile reveal d6"><div class="pic">🕷️</div><p>Aranhas</p></div>
+      <div class="praga-tile reveal d1"><div class="pic">🦂</div><p>Escorpiões</p></div>
+      <div class="praga-tile reveal d2"><div class="pic">🐝</div><p>Vespas</p></div>
+      <div class="praga-tile reveal d3"><div class="pic">🪲</div><p>Brocas</p></div>
+      <div class="praga-tile reveal d4"><div class="pic">🐛</div><p>Traças</p></div>
+      <div class="praga-tile reveal d5"><div class="pic">🐕</div><p>Pulgas</p></div>
+      <div class="praga-tile reveal d6"><div class="pic">🪰</div><p>Moscas</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Como trabalhamos</div>
+      <h2 class="section-h" style="color:#fff">Processo simples,<br><span>resultado garantido</span></h2>
+    </div>
+    <div class="process-grid">
+      <div class="proc-card reveal d1"><div class="proc-num">01</div><h4>Contato &amp; Orçamento</h4><p>Entre em contato pelo WhatsApp ou formulário. Orçamento gratuito e rápido, sem compromisso.</p></div>
+      <div class="proc-card reveal d2"><div class="proc-num">02</div><h4>Visita Técnica</h4><p>Nossos especialistas avaliam o local, identificam a infestação e definem o melhor método.</p></div>
+      <div class="proc-card reveal d3"><div class="proc-num">03</div><h4>Aplicação Segura</h4><p>Utilizamos produtos certificados e equipamentos modernos com total segurança para sua família.</p></div>
+      <div class="proc-card reveal d4"><div class="proc-num">04</div><h4>Laudo &amp; Garantia</h4><p>Emitimos laudo técnico e certificado. Oferecemos garantia no serviço e acompanhamento pós-aplicação.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="depoimentos">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;margin-bottom:3rem">
+      <div class="tag">Avaliações</div>
+      <h2 class="section-h">O que nossos <span>clientes dizem</span></h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Serviço excepcional! A equipe chegou pontualmente, foi extremamente profissional e resolveu o problema de cupins que me preocupava há meses. Recomendo com toda a certeza!"</blockquote>
+        <div class="testi-author">— Ana Paula M.</div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Contratei para dedetização e limpeza da caixa d'água do condomínio. Trabalho impecável, com laudo técnico completo e preço muito justo. Já agendei para o próximo semestre."</blockquote>
+        <div class="testi-author">— Carlos Eduardo S.</div>
+      </div>
+      <div class="testi-card reveal d3">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Problema grave com ratos no estabelecimento resolvido com rapidez e competência. Ainda recebi orientações valiosas para evitar novas infestações. Serviço de altíssima qualidade!"</blockquote>
+        <div class="testi-author">— Fernanda R.</div>
+      </div>
+      <div class="testi-card reveal d4">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Entupimento sério resolvido em menos de uma hora. Equipe atenciosa, eficiente e o valor cobrado foi exatamente o combinado — sem nenhuma surpresa. Voltarei sempre!"</blockquote>
+        <div class="testi-author">— Roberto L.</div>
+      </div>
+      <div class="testi-card reveal d5">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Excelente atendimento do primeiro contato até a conclusão. Equipe educada, pontual e muito competente. O resultado superou minhas expectativas. Super indicado!"</blockquote>
+        <div class="testi-author">— Márcia O.</div>
+      </div>
+      <div class="testi-card reveal d6">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Fizeram a dedetização completa da minha empresa. Produto sem odor forte, rápido e eficaz. Laudos técnicos entregues no mesmo dia. Profissionalismo de verdade!"</blockquote>
+        <div class="testi-author">— Ricardo A.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="faq-side reveal">
+        <div class="tag">Dúvidas</div>
+        <h2 class="section-h">Perguntas <span>frequentes</span></h2>
+        <div class="divider"></div>
+        <p>Não encontrou a resposta? Fale diretamente com nossa equipe pelo WhatsApp ou formulário de contato.</p>
+        <a href="javascript:void(0)" onclick="openWhatsAppForm('5531988589278')">💬 Falar com especialista</a>
+      </div>
+      <div class="faq-list reveal d2">
+        <div class="faq-item">
+          <button class="faq-btn" onclick="faq(this)">Quais serviços a Mattos Multi Service oferece?<span class="faq-arrow">▼</span></button>
+          <div class="faq-body">Oferecemos Dedetização, Desratização, Descupinização, Controle de Pragas Urbanas, Limpeza de Caixa D'água e Desentupimento para residências, empresas e condomínios em toda Minas Gerais.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="faq(this)">Os produtos são seguros para crianças e pets?<span class="faq-arrow">▼</span></button>
+          <div class="faq-body">Sim! Utilizamos apenas produtos registrados no Ministério da Saúde, de baixa toxicidade. Nossa equipe orienta sobre todos os cuidados necessários durante e após a aplicação.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="faq(this)">Com que frequência devo realizar a dedetização?<span class="faq-arrow">▼</span></button>
+          <div class="faq-body">Para residências, recomendamos a cada 6 meses como prevenção. Para comércios e indústrias, a frequência pode ser maior conforme normas da vigilância sanitária.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="faq(this)">Vocês emitem laudo técnico e certificado?<span class="faq-arrow">▼</span></button>
+          <div class="faq-body">Sim! Todos os serviços incluem laudo técnico e certificado — documentos exigidos pela ANVISA e essenciais para auditorias e vigilância sanitária.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="faq(this)">Como solicitar orçamento?<span class="faq-arrow">▼</span></button>
+          <div class="faq-body">Pelo WhatsApp (31)omisso.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="faq(this)">Com que frequência limpar a caixa d'água?<span class="faq-arrow">▼</span></button>
+          <div class="faq-body">A norma ABNT e a ANVISA recomendam a cada 6 meses. Isso garante água de qualidade e previne doenças de transmissão hídrica para toda a família.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text reveal">
+        <h2>Solicite seu orçamento<br>gratuito hoje mesmo!</h2>
+        <p>Trabalhamos com eficiência, segurança e qualidade em cada atendimento. Entre em contato agora.</p>
+      </div>
+      <div class="cta-btns reveal d2">
+        <a href="javascript:void(0)" onclick="openWhatsAppForm('5531988589278')">💬 WhatsApp</a>
+        <a href="#contato" class="btn-light">Formulário →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;margin-bottom:3.5rem">
+      <div class="tag">Contato</div>
+      <h2 class="section-h">Fale com a <span>Mattos Multi Service</span></h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h2>Atendimento rápido<br>e especializado</h2>
+        <p>Entre em contato por qualquer canal. Respondemos com agilidade e o orçamento é sempre gratuito e sem compromisso.</p>
+        <div class="cinfo-block">
+          <div class="cinfo-icon">✉️</div>
+          <div><h4>E-mail</h4><a href="mailto:conservadoramattos@gmail.com">conservadoramattos@gmail.com</a></div>
+        </div>
+        <div class="cinfo-block">
+          <div class="cinfo-icon">📱</div>
+          <div>
+            <h4>WhatsApp &amp; Telefone</h4>
+            <a href="javascript:void(0)" onclick="openWhatsAppForm('5531988589278')"><svg class="wa-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> (31) 98858-9278</a><br>
+            <a href="javascript:void(0)" onclick="openWhatsAppForm('5531973172376')"><svg class="wa-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> (31) 97317-2376</a><br>
+            <a href="javascript:void(0)" onclick="openWhatsAppForm('5531996868701')"><svg class="wa-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> (31) 99686-8701</a>
+          </div>
+        </div>
+        <div class="cinfo-block">
+          <div class="cinfo-icon">🕐</div>
+          <div><h4>Horário</h4><p>Segunda a Sábado: 7h às 19h<br>Emergências: 24 horas</p></div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="form-card">
+          <h3>Solicite seu orçamento</h3>
+          <p class="form-sub">Preencha abaixo e entraremos em contato em breve.</p>
+          <form onsubmit="event.preventDefault();alert('Obrigado! Entraremos em contato em breve.\n\nOu fale direto: (31) 98858-9278')">
+            <div class="f-row">
+              <div class="f-group"><label>Nome *</label><input type="text" placeholder="Seu nome" required></div>
+              <div class="f-group"><label>Telefone *</label><input type="tel" placeholder="(31) 9 0000-0000" required></div>
+            </div>
+            <div class="f-group"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
+            <div class="f-group">
+              <label>Serviço de Interesse *</label>
+              <select required>
+                <option value="">Selecione…</option>
+                <option>Dedetização</option>
+                <option>Desratização</option>
+                <option>Descupinização</option>
+                <option>Controle de Pragas Urbanas</option>
+                <option>Limpeza de Caixa D'água</option>
+                <option>Desentupimento</option>
+              </select>
+            </div>
+            <div class="f-group"><label>Mensagem</label><textarea placeholder="Descreva o problema ou dúvida…"></textarea></div>
+            <button type="submit" class="btn-send">Enviar Solicitação</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FORMAS DE PAGAMENTO -->
+<section style="background:#f5f5f5; padding:3rem 0; border-top:1px solid #e0e0e0;">
+  <div class="container" style="max-width:650px;">
+    <div style="text-align:center; margin-bottom:2rem;">
+      <h3 style="font-size:1.4rem; font-weight:700; color:#333; margin-bottom:0.5rem;">Formas de Pagamento</h3>
+      <p style="font-size:0.9rem; color:#666;">Aceitamos diversas formas de pagamento para sua comodidade</p>
+    </div>
+    
+    <div style="background:white; padding:2rem; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+      
+      <!-- Crédito -->
+      <div style="margin-bottom:1.5rem;">
+        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <strong style="font-size:0.9rem; color:#555; min-width:70px;">Crédito:</strong>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <img src="https://img.shields.io/badge/VISA-1434CB?style=flat&logo=visa&logoColor=white" alt="Visa" style="height:24px;">
+            <img src="https://img.shields.io/badge/Mastercard-EB001B?style=flat&logo=mastercard&logoColor=white" alt="Mastercard" style="height:24px;">
+            <img src="https://img.shields.io/badge/ELO-FFD700?style=flat&logoColor=black" alt="Elo" style="height:24px;">
+            <img src="https://img.shields.io/badge/Diners-0079BE?style=flat&logoColor=white" alt="Diners" style="height:24px;">
+            <img src="https://img.shields.io/badge/Hipercard-C41E3A?style=flat&logoColor=white" alt="Hipercard" style="height:24px;">
+            <img src="https://img.shields.io/badge/American_Express-2E77BC?style=flat&logoColor=white" alt="Amex" style="height:24px;">
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid #eee; margin:1rem 0;"></div>
+
+      <!-- Débito -->
+      <div style="margin-bottom:1.5rem;">
+        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <strong style="font-size:0.9rem; color:#555; min-width:70px;">Débito:</strong>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <img src="https://img.shields.io/badge/VISA-1434CB?style=flat&logo=visa&logoColor=white" alt="Visa Débito" style="height:24px;">
+            <img src="https://img.shields.io/badge/Mastercard-EB001B?style=flat&logo=mastercard&logoColor=white" alt="Mastercard Débito" style="height:24px;">
+            <img src="https://img.shields.io/badge/ELO-FFD700?style=flat&logoColor=black" alt="Elo Débito" style="height:24px;">
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid #eee; margin:1rem 0;"></div>
+
+      <!-- Outros -->
+      <div>
+        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <strong style="font-size:0.9rem; color:#555; min-width:70px;">Outros:</strong>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center;">
+            <img src="https://img.shields.io/badge/Banco_do_Brasil-FFF200?style=flat&logoColor=003882" alt="BB" style="height:24px;">
+            <img src="https://img.shields.io/badge/Itaú-EC7000?style=flat&logoColor=white" alt="Itaú" style="height:24px;">
+            <img src="https://img.shields.io/badge/PIX-00C9B7?style=flat&logoColor=white" alt="PIX" style="height:24px;">
+            <img src="https://img.shields.io/badge/Boleto-666?style=flat&logoColor=white" alt="Boleto" style="height:24px;">
+            <span style="font-size:1.5rem;">💰</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WhatsApp Form Modal -->
+<div class="whatsapp-form-overlay" id="whatsappFormOverlay">
+  <div class="whatsapp-form-modal">
+    <div class="whatsapp-form-header">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E" alt="WhatsApp">
+      <h3>WhatsApp</h3>
+      <button class="whatsapp-form-close" onclick="closeWhatsAppForm()">×</button>
+    </div>
+    <div class="whatsapp-form-body">
+      <form id="whatsappForm" onsubmit="submitWhatsAppForm(event)">
+        <div class="whatsapp-form-group">
+          <label for="userName">Nome</label>
+          <input type="text" id="userName" name="userName" placeholder="Seu nome" required>
+        </div>
+        <div class="whatsapp-form-group">
+          <label for="userPhone">Telefone</label>
+          <input type="tel" id="userPhone" name="userPhone" placeholder="(00) 00000-0000" required>
+        </div>
+        <button type="submit" class="whatsapp-form-submit">Ir para o WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-body">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="reveal">
+          <div class="f-brand-name">MATTOS</div>
+          <span class="f-brand-tag">Multi Service</span>
+          <p class="f-brand-desc">Conservadora e Dedetizadora comprometida com sua segurança. Soluções completas em controle de pragas, conservação e desentupimento em Minas Gerais.</p>
+          <div class="f-social">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📸</a>
+            <a href="javascript:void(0)" onclick="openWhatsAppForm('5531988589278')">💬</a>
+          </div>
+        </div>
+        <div class="f-col reveal d1">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#servicos">Dedetização</a></li>
+            <li><a href="#servicos">Desratização</a></li>
+            <li><a href="#servicos">Descupinização</a></li>
+            <li><a href="#servicos">Controle de Pragas</a></li>
+            <li><a href="#servicos">Limpeza de Caixa D'água</a></li>
+            <li><a href="#servicos">Desentupimento</a></li>
+          </ul>
+        </div>
+        <div class="f-col reveal d2">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#sobre">Quem Somos</a></li>
+            <li><a href="#pragas">Pragas</a></li>
+            <li><a href="#conservacao">Conservação</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="f-col reveal d3">
+          <h4>Contato</h4>
+          <div class="f-contact-row"><span>✉</span><a href="mailto:conservadoramattos@gmail.com">conservadoramattos@gmail.com</a></div>
+          <div class="f-contact-row"><span><svg class="wa-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><a href="javascript:void(0)" onclick="openWhatsAppForm('5531988589278')">(31) 98858-9278</a></div>
+          <div class="f-contact-row"><span><svg class="wa-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><a href="javascript:void(0)" onclick="openWhatsAppForm('5531973172376')">(31) 97317-2376</a></div>
+          <div class="f-contact-row"><span><svg class="wa-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><a href="javascript:void(0)" onclick="openWhatsAppForm('5531996868701')">(31) 99686-8701</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="container">
+      <p>© 2026 Mattos Multi Service – Conservadora e Dedetizadora. Todos os direitos reservados.</p>
+      <p>Minas Gerais, Brasil</p>
+      <p style="font-size:0.85rem;opacity:0.8;">CNPJ: 54.172.535/0001-79</p>
+      <p><a href="politica-privacidade.html" style="color:#4fc76a;">Política de Privacidade</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT WA -->
+<div class="float-wa" onclick="openWhatsAppForm('5531988589278')" title="Fale no WhatsApp">💬</div>
+
+<!-- WhatsApp Modal -->
+<div class="whatsapp-modal" id="whatsappModal">
+  <div class="modal-header">
+    <h3>💬 Fale Conosco</h3>
+    <button class="close-modal" onclick="toggleWhatsAppModal()">×</button>
+  </div>
+  <div class="modal-body">
+    <p>Escolha um número para conversar:</p>
+    <a href="https://api.whatsapp.com/send?phone=5531988589278&text=Olá!+Vim+do+site" class="contact-option" target="_blank">
+      <span class="wa-icon">💬</span>
+      <strong>(31) 98858-9278</strong>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=5531996868701&text=Olá!+Vim+do+site" class="contact-option" target="_blank">
+      <span class="wa-icon">💬</span>
+      <strong>(31) 99686-8701</strong>
+      <span class="arrow">→</span>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=5531973172376&text=Olá!+Vim+do+site" class="contact-option" target="_blank">
+      <span class="wa-icon">💬</span>
+      <strong>(31) 97317-2376</strong>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<script>
+/* ── WhatsApp Modal ── */
+/* ── WhatsApp Form Functions ── */
+let whatsappTargetNumber = '';
+
+function openWhatsAppForm(phoneNumber) {
+  whatsappTargetNumber = phoneNumber;
+  document.getElementById('whatsappFormOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeWhatsAppForm() {
+  document.getElementById('whatsappFormOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+  document.getElementById('whatsappForm').reset();
+}
+
+function submitWhatsAppForm(event) {
+  event.preventDefault();
+  
+  const userName = document.getElementById('userName').value;
+  const userPhone = document.getElementById('userPhone').value;
+  
+  const message = `Olá! Meu nome é ${userName} e meu telefone é ${userPhone}. Gostaria de saber mais sobre os serviços da Mattos Multi Service.`;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappTargetNumber}&text=${encodedMessage}`;
+  
+  window.open(whatsappUrl, '_blank');
+  closeWhatsAppForm();
+}
+
+// Fechar modal ao clicar fora
+document.addEventListener('click', function(event) {
+  const overlay = document.getElementById('whatsappFormOverlay');
+  if (event.target === overlay) {
+    closeWhatsAppForm();
+  }
+});
+
+// Máscara de telefone
+document.addEventListener('DOMContentLoaded', function() {
+  const phoneInput = document.getElementById('userPhone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length <= 11) {
+        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+        value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+      }
+      e.target.value = value;
+    });
+  }
+});
+
+function toggleWhatsAppModal() {
+  const modal = document.getElementById('whatsappModal');
+  modal.classList.toggle('show');
+}
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('whatsappModal');
+  const button = document.querySelector('.float-wa');
+  if (modal && button && !modal.contains(event.target) && !button.contains(event.target)) {
+    modal.classList.remove('show');
+  }
+});
+
+/* ── Navbar scroll shadow ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── FAQ ── */
+function faq(btn) {
+  const body = btn.nextElementSibling, isOpen = body.classList.contains('open');
+  document.querySelectorAll('.faq-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('open'));
+  if(!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+}
+
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if(t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
